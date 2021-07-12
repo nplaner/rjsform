@@ -31,7 +31,10 @@ const schema = {
 
 const App = () => {
   return (
-      <Form schema={schema} />
+      <Form 
+      schema={schema} 
+      onSubmit={({formData}) => alert(JSON.stringify(formData, null, 2))}
+      />
   );
 }
 
