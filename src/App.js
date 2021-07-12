@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import Form from "@rjsf/core";
 
-function App() {
+const schema = {
+  title: "Data Surge LLC Employee Form",
+  type: "object",
+  properties: {
+    name: {
+      type: 'string'
+    },
+    age: {
+      type: 'number'
+    },
+    role: {
+      type: 'string'
+    },
+    tasksDone: {
+      type: 'array',
+      items: {
+        type: 'object',
+        properties: {
+          title: { type: 'string' },
+          description: { type: 'string' }
+        }
+      }
+    }
+  }
+};
+// const uiSchema = {
+//   age: {"ui:widget": "updown"}
+// };
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Form schema={schema} />
   );
 }
 
