@@ -26,7 +26,14 @@ const schema = {
     }
   }
 };
-
+const ArrayFieldTemplate = (props) => {
+  return (
+    <div>
+      {props.items.map(element => element.children)}
+      {props.canAdd && <button type="button" onClick={props.onAddClick}>Add new task</button>}
+    </div>
+  );
+}
 
 const App = () => {
   // const [coords, setCoords] = useState({
@@ -54,6 +61,7 @@ const App = () => {
     <div>
       <Form 
       schema={schema}
+      ArrayFieldTemplate={ArrayFieldTemplate}
       onChange={console.log('123')}
       onSubmit={({formData}) => alert(JSON.stringify(formData, null, 2))}
       />

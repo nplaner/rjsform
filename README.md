@@ -9,5 +9,7 @@
 ## customizing rjs forms
 ## grabbing lat and lon every time someone makes change and associate it to the field
 ## post json to postgres db ==> azure function
+## take what is here and turn it into mobile development (react ==> react native)
+## advance templates
 
 * [ ]Store that JSON file to a Azure Blob Storage
