@@ -3,13 +3,15 @@
 
 * [x]Create app using rjs forms
 
-* [x]Be able to submit information which will get turns into JSON
+* [x]Be able to submit information which will get turned into JSON
 
+* [ ] customizing(advanced templates) rjs forms ==> has arrays incorporated
 
-## customizing rjs forms
-## grabbing lat and lon every time someone makes change and associate it to the field
-## post json to postgres db ==> azure function
-## take what is here and turn it into mobile development (react ==> react native)
-## advance templates
+* [x] grabbing lat and lon every time someone makes change and associate it to the field
+
+* [ ] post json to postgres db ==> azure function
+
+* [ ] take what is here and turn it into mobile development (react ==> react native)
+Started using react native components and they work in web browser, but have come across some issues when using on phone(expo)
 
 * [ ]Store that JSON file to a Azure Blob Storage
