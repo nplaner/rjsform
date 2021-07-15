@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Form from "@rjsf/core";
 
 const schema = {
-  title: "Data Surge LLC Employee Form",
+  title: "Data Surge LLC",
   type: "object",
   properties: {
     name: {
@@ -26,6 +26,7 @@ const schema = {
     }
   }
 };
+
 const ArrayFieldTemplate = (props) => {
   return (
     <div>
@@ -35,25 +36,33 @@ const ArrayFieldTemplate = (props) => {
   );
 }
 
+const CustomFieldTemplate = (props) => {
+  const {id, classNames, label, required, children} = props;
+  return (
+    <div className={classNames}>
+      <label htmlFor={id}>{label}{required ? "*" : null}</label>
+      {children}
+    </div>
+  );
+}
+
+const CustomTitleField = () => {
+  return <div id="custom">Employee Task Form</div>;
+};
+
+const fields = {
+  TitleField: CustomTitleField
+};
+
 const App = () => {
-  // const [coords, setCoords] = useState({
-  //   lon: 0,
-  //   lat: 0
-  // })
   const [lat, setLat] = useState(0)
   const [lon, setLon] = useState(0)
 
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
-      // setCoords({
-      //   ...coords,
-      //   lon: position.coords.longitude,
-      //   lat: position.coords.latitude
-      // })
       setLat(position.coords.latitude)
       setLon(position.coords.longitude)
-      // console.log(('lat:', coords.lat), ('lon:', coords.lon))
     })
   }, [lat, lon])
 
@@ -62,7 +71,8 @@ const App = () => {
       <Form 
       schema={schema}
       ArrayFieldTemplate={ArrayFieldTemplate}
-      onChange={console.log('123')}
+      FieldTemplate={CustomFieldTemplate}
+      fields={fields}
       onSubmit={({formData}) => alert(JSON.stringify(formData, null, 2))}
       />
       <p>Current longitude and latitude: {lon}, {lat}</p>
